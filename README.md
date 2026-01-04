@@ -6,8 +6,6 @@ Predicting heart disease presence using clinical features with Decision Trees an
 
 Cardiovascular disease is the leading cause of death globally, responsible for ~18 million deaths annually. Early detection using readily available clinical measures could enable timely intervention. This project explores which clinical features best predict heart disease and compares two tree-based classification methods.
 
-This is my second data science project, complementing my [diabetes analysis](link-to-other-repo) by showing classification methods (vs. regression) and tree-based models (vs. logistic regression).
-
 ## The Data
 
 **Source:** UCI Machine Learning Repository - Cleveland Heart Disease Database  
