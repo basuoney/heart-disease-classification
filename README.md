@@ -134,17 +134,6 @@ The script will:
 - **Feature engineering:** Create interaction terms (age × max heart rate?)
 - **Explainability:** Use SHAP values to explain individual predictions
 
-## Comparison to My Diabetes Project
-
-| Aspect | Diabetes Project | Heart Disease Project |
-|--------|-----------------|---------------------|
-| **Outcome** | Binary (Yes/No) | Binary (Yes/No) |
-| **Method** | Logistic Regression | Decision Tree + Random Forest |
-| **Interpretability** | Odds ratios | Tree paths + Feature importance |
-| **Sample Size** | 7,959 | 297 |
-| **Key Learning** | Threshold optimization | Ensemble methods |
-
-Both projects demonstrate core skills for public health data science: cleaning data, handling class imbalance, model evaluation, and translating results to actionable insights.
 
 ## References
 
