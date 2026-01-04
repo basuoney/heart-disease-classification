@@ -10,7 +10,7 @@ Cardiovascular disease is the leading cause of death globally, responsible for ~
 
 **Source:** UCI Machine Learning Repository - Cleveland Heart Disease Database  
 **Sample:** 297 patients (after removing missing values)  
-**Prevalence:** ~54% with heart disease
+**Prevalence:** ~46% with heart disease (137 out of 297)
 
 **Clinical Features (13 total):**
 - Demographics: Age, Sex
@@ -45,8 +45,8 @@ The target variable indicates presence/absence of heart disease (originally 0-4 
 
 | Model | Accuracy | Sensitivity | Specificity |
 |-------|----------|-------------|-------------|
-| Decision Tree | ~73% | ~85% | ~58.8% |
-| Random Forest | ~87.8% | ~90% | ~85.3% |
+| Decision Tree | ~73% | ~85% | ~59% |
+| Random Forest | ~88% | ~90% | ~85% |
 
 Random Forest performed better, as expected for ensemble methods.
 
@@ -134,6 +134,17 @@ The script will:
 - **Feature engineering:** Create interaction terms (age × max heart rate?)
 - **Explainability:** Use SHAP values to explain individual predictions
 
+## Comparison to My Diabetes Project
+
+| Aspect | Diabetes Project | Heart Disease Project |
+|--------|-----------------|---------------------|
+| **Outcome** | Binary (Yes/No) | Binary (Yes/No) |
+| **Method** | Logistic Regression | Decision Tree + Random Forest |
+| **Interpretability** | Odds ratios | Tree paths + Feature importance |
+| **Sample Size** | 7,959 | 297 |
+| **Key Learning** | Threshold optimization | Ensemble methods |
+
+Both projects demonstrate core skills for public health data science: cleaning data, handling class imbalance, model evaluation, and translating results to actionable insights.
 
 ## References
 
