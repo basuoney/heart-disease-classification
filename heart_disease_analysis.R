@@ -88,7 +88,8 @@ cat("After removing missing values:", nrow(heart_clean), "observations\n\n")
 heart_clean <- heart_clean %>%
   mutate(
     disease = ifelse(target > 0, 1, 0),
-    disease = factor(disease, levels = c(0, 1), labels = c("No", "Yes")),
+    # IMPORTANT: "Yes" first so it's the positive class for sensitivity/specificity
+    disease = factor(disease, levels = c(1, 0), labels = c("Yes", "No")),
     # Make categorical variables factors
     sex = factor(sex, levels = c(0, 1), labels = c("Female", "Male")),
     cp = factor(cp),
@@ -181,7 +182,7 @@ cat("=== DECISION TREE MODEL ===\n\n")
 # Fit decision tree
 tree_model <- rpart(
   disease ~ age + sex + cp + trestbps + chol + fbs + restecg + 
-    thalach + exang + oldpeak + slope + ca + thal,
+            thalach + exang + oldpeak + slope + ca + thal,
   data = train_data,
   method = "class",
   control = rpart.control(cp = 0.01, minsplit = 20)
@@ -200,6 +201,8 @@ print(round(importance_tree, 2))
 cat("\n")
 
 # Predictions on test set
+# Note: "Yes" is the positive class (disease present) so sensitivity means
+# "ability to detect disease" which is what we want for medical screening
 tree_pred <- predict(tree_model, test_data, type = "class")
 tree_conf <- confusionMatrix(tree_pred, test_data$disease)
 
@@ -216,7 +219,7 @@ cat("=== RANDOM FOREST MODEL ===\n\n")
 # Using fewer trees for speed, but still effective
 rf_model <- randomForest(
   disease ~ age + sex + cp + trestbps + chol + fbs + restecg + 
-    thalach + exang + oldpeak + slope + ca + thal,
+            thalach + exang + oldpeak + slope + ca + thal,
   data = train_data,
   ntree = 500,
   mtry = 3,
@@ -291,7 +294,7 @@ cat("\n=== WHAT I LEARNED ===\n")
 cat("1. Random Forest generally outperforms single Decision Trees\n")
 cat("2. Chest pain type and thalassemia appear most predictive\n")
 cat("3. Tree models are more interpretable than many algorithms\n")
-cat("4. Class imbalance isn't severe here (~54% disease prevalence)\n\n")
+cat("4. Class imbalance isn't severe here (~46% disease prevalence)\n\n")
 
 cat("=== LIMITATIONS ===\n")
 cat("- Small dataset (n=297 after cleaning)\n")
