@@ -139,7 +139,3 @@ The script will:
 
 - **Data Source:** Dua, D. and Graff, C. (2019). UCI Machine Learning Repository. University of California, Irvine, School of Information and Computer Sciences.
 - **Original Publication:** Detrano, R. et al. (1989). International application of a new probability algorithm for the diagnosis of coronary artery disease. American Journal of Cardiology.
-
-**Date:** January 2026
-
-*Created for MPH Data Science application portfolio*
